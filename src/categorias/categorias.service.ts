@@ -13,8 +13,8 @@ export class CategoriasService {
     private categoriasRepository: Repository<Categoria>,
   ) {}
 
-  create(createCategoriaDto: CreateCategoriaDto) {
-    return 'This action adds a new categoria';
+  async create(createCategoriaDto: CreateCategoriaDto) {
+    return await this.categoriasRepository.save(createCategoriaDto);
   }
 
   findAll(): Promise<Categoria[]>{
@@ -26,7 +26,7 @@ export class CategoriasService {
   }
 
   update(id: number, updateCategoriaDto: UpdateCategoriaDto) {
-    return `This action updates a #${id} categoria`;
+    return this.categoriasRepository.update(id, updateCategoriaDto);
   }
 
   remove(id: number) {
