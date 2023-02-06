@@ -44,4 +44,4 @@ export class UpdateVeiculoDto extends PartialType(CreateVeiculoDto) {
     @IsInt({ message: 'Status precisa ser um número inteiro' })
     status: number;
 }
-}
+
