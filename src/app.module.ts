@@ -6,9 +6,13 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { VeiculosModule } from './veiculos/veiculos.module';
 import { Categoria } from './categorias/entities/categoria.entity';
 import { Veiculo } from './veiculos/entities/veiculo.entity';
+import { BrasilApiController } from './brasil-api/brasil-api.controller';
+import { HttpModule } from '@nestjs/axios';
+import { BrasilApiService } from './brasil-api/brasil-api.service';
 
 @Module({
   imports: [
+    HttpModule,
     CategoriasModule, 
     VeiculosModule,
     TypeOrmModule.forRoot({
@@ -22,7 +26,7 @@ import { Veiculo } from './veiculos/entities/veiculo.entity';
       synchronize: true,
     })
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, BrasilApiController],
+  providers: [AppService, BrasilApiService],
 })
 export class AppModule {}
